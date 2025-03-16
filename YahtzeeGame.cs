@@ -9,6 +9,7 @@ namespace BrowerYahtzee
 {
     public class YahtzeeGame
     {
+        private bool canScoreFlag = false;
         private byte countOfRolls;
         private List<Die> diceOnTable = new List<Die>();
         private bool gameOver = true;
@@ -81,6 +82,14 @@ namespace BrowerYahtzee
                     countOfRolls++;
                 }
             }
+        }
+        public bool getIfCanScore()
+        {
+            return canScoreFlag;
+        }
+        public void setCanScoreFlag(bool flag)
+        {
+            canScoreFlag = flag;
         }
         public int getRound()
         {

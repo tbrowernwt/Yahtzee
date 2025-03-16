@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormScorecard));
             this.groupBoxUpperSection = new System.Windows.Forms.GroupBox();
             this.textBoxUpperTotal = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -82,7 +83,6 @@
             this.label31 = new System.Windows.Forms.Label();
             this.textBoxGrandTotal = new System.Windows.Forms.TextBox();
             this.buttonNewGame = new System.Windows.Forms.Button();
-            this.labelStatusOfGame = new System.Windows.Forms.Label();
             this.groupBoxUpperSection.SuspendLayout();
             this.groupBoxLowerSection.SuspendLayout();
             this.SuspendLayout();
@@ -642,26 +642,17 @@
             this.buttonNewGame.UseVisualStyleBackColor = true;
             this.buttonNewGame.Click += new System.EventHandler(this.buttonNewGame_Click);
             // 
-            // labelStatusOfGame
-            // 
-            this.labelStatusOfGame.AutoSize = true;
-            this.labelStatusOfGame.Location = new System.Drawing.Point(12, 592);
-            this.labelStatusOfGame.Name = "labelStatusOfGame";
-            this.labelStatusOfGame.Size = new System.Drawing.Size(140, 13);
-            this.labelStatusOfGame.TabIndex = 50;
-            this.labelStatusOfGame.Text = "Create a new game to begin";
-            // 
             // FormScorecard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(244, 614);
-            this.Controls.Add(this.labelStatusOfGame);
             this.Controls.Add(this.buttonNewGame);
             this.Controls.Add(this.textBoxGrandTotal);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.groupBoxLowerSection);
             this.Controls.Add(this.groupBoxUpperSection);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormScorecard";
             this.Text = "Scorecard";
             this.groupBoxUpperSection.ResumeLayout(false);
@@ -729,6 +720,5 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox textBoxGrandTotal;
         private System.Windows.Forms.Button buttonNewGame;
-        private System.Windows.Forms.Label labelStatusOfGame;
     }
 }

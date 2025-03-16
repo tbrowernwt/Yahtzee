@@ -16,8 +16,7 @@ namespace BrowerYahtzee
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            YahtzeeGame game = new YahtzeeGame();
-            Application.Run(new FormDiceTable(ref game));
+            Application.Run(new FormScorecard());
         }
     }
 }

@@ -39,6 +39,7 @@
             this.pictureBoxDie3 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDie4 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDie5 = new System.Windows.Forms.PictureBox();
+            this.labelStatusOfGame = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDie1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDie2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDie3)).BeginInit();
@@ -140,12 +141,22 @@
             this.pictureBoxDie5.TabStop = false;
             this.pictureBoxDie5.Click += new System.EventHandler(this.pictureBoxDie5_Click);
             // 
+            // labelStatusOfGame
+            // 
+            this.labelStatusOfGame.AutoSize = true;
+            this.labelStatusOfGame.Location = new System.Drawing.Point(12, 220);
+            this.labelStatusOfGame.Name = "labelStatusOfGame";
+            this.labelStatusOfGame.Size = new System.Drawing.Size(125, 13);
+            this.labelStatusOfGame.TabIndex = 17;
+            this.labelStatusOfGame.Text = "Click Roll button to begin";
+            // 
             // FormDiceTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
             this.ClientSize = new System.Drawing.Size(448, 251);
+            this.Controls.Add(this.labelStatusOfGame);
             this.Controls.Add(this.pictureBoxDie5);
             this.Controls.Add(this.pictureBoxDie4);
             this.Controls.Add(this.pictureBoxDie3);
@@ -177,6 +188,7 @@
         private System.Windows.Forms.PictureBox pictureBoxDie3;
         private System.Windows.Forms.PictureBox pictureBoxDie4;
         private System.Windows.Forms.PictureBox pictureBoxDie5;
+        private System.Windows.Forms.Label labelStatusOfGame;
     }
 }
 

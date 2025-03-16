@@ -13,64 +13,91 @@ namespace BrowerYahtzee
     public partial class FormDiceTable : Form
     {
         private FormScorecard scorecard;
-        private YahtzeeGame game;
         private List<PictureBox> dieFacePictureBoxes = new List<PictureBox>();
 
-        public FormDiceTable(ref YahtzeeGame game)
+        private static string NEW_GAME_MESSAGE = "Game over. Click New Game on the scorecard to begin a new game";
+        private static string SELECT_SCORE_MESSAGE = "Select an option from the scorecard";
+        private static string DUAL_OPTION_MESSAGE = "Select the dice to hold and click Roll or pick from the scorecard";
+        private static string NEW_GAME_FIRST_ROLL_MESSAGE = "Click Roll button to begin";
+        private static string ROLL_TO_CONTINUE = "Click Roll button to continue";
+
+        public FormDiceTable(FormScorecard scorecard)
         {
             InitializeComponent();
-            this.game = game;
-            scorecard = new FormScorecard(ref game);
-            scorecard.Show();
+            this.scorecard = scorecard;
             dieFacePictureBoxes.Add(pictureBoxDie1);
             dieFacePictureBoxes.Add(pictureBoxDie2);
             dieFacePictureBoxes.Add(pictureBoxDie3);
             dieFacePictureBoxes.Add(pictureBoxDie4);
             dieFacePictureBoxes.Add(pictureBoxDie5);
+            scorecard.getYahtzeeGameContext().startNewGame();
         }
 
         private void buttonRoll_Click(object sender, EventArgs e)
         {
-            game.rollDice(scorecard.getIfNewRound());
-            scorecard.setCanScoreFlag(true);
+            scorecard.getYahtzeeGameContext().rollDice(scorecard.getIfNewRound());
+            scorecard.getYahtzeeGameContext().setCanScoreFlag(true);
             updateFormView();
             scorecard.updateScorecard();
         }
 
         private void pictureBoxDie1_Click(object sender, EventArgs e)
         {
-            game.flipDieHoldFlag(0);
+            scorecard.getYahtzeeGameContext().flipDieHoldFlag(0);
             updateFormView();
 
         }
 
         private void pictureBoxDie2_Click(object sender, EventArgs e)
         {
-            game.flipDieHoldFlag(1);
+            scorecard.getYahtzeeGameContext().flipDieHoldFlag(1);
             updateFormView();
         }
 
         private void pictureBoxDie3_Click(object sender, EventArgs e)
         {
-            game.flipDieHoldFlag(2);
+            scorecard.getYahtzeeGameContext().flipDieHoldFlag(2);
             updateFormView();
         }
 
         private void pictureBoxDie4_Click(object sender, EventArgs e)
         {
-            game.flipDieHoldFlag(3);
+            scorecard.getYahtzeeGameContext().flipDieHoldFlag(3);
             updateFormView();
         }
 
         private void pictureBoxDie5_Click(object sender, EventArgs e)
         {
-            game.flipDieHoldFlag(4);
+            scorecard.getYahtzeeGameContext().flipDieHoldFlag(4);
             updateFormView();
         }
         private void updateFormView()
         {
-            TableRenderer.renderTable(game.getDiceList(), dieFacePictureBoxes, imageListDieFaces);
-            labelRollCountNumber.Text = game.getCountOfRolls().ToString();
+            TableRenderer.renderTable(scorecard.getYahtzeeGameContext().getDiceList(), dieFacePictureBoxes, imageListDieFaces);
+            labelRollCountNumber.Text = scorecard.getYahtzeeGameContext().getCountOfRolls().ToString();
+            updateGameStatusLabel();
+        }
+        public void updateGameStatusLabel()
+        {
+            if (scorecard.getYahtzeeGameContext().getIfGameOver())
+            {
+                labelStatusOfGame.Text = NEW_GAME_MESSAGE;
+            }
+            else if (scorecard.getYahtzeeGameContext().getIfCanScore())
+            {
+                if (scorecard.getYahtzeeGameContext().getCountOfRolls() == 3)
+                {
+                    labelStatusOfGame.Text = SELECT_SCORE_MESSAGE;
+                }
+                else
+                {
+                    labelStatusOfGame.Text = DUAL_OPTION_MESSAGE;
+                }
+            }
+            else
+            {
+                labelStatusOfGame.Text = ROLL_TO_CONTINUE;
+            }
         }
     }
 }

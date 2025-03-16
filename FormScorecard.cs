@@ -13,21 +13,16 @@ namespace BrowerYahtzee
 {
     public partial class FormScorecard : Form
     {
-        private static string NEW_GAME_MESSAGE = "Game over. Click New Game on the scorecard to begin a new game";
-        private static string SELECT_SCORE_MESSAGE = "Select an option from the scorecard";
-        private static string DUAL_OPTION_MESSAGE = "Select the dice to hold and click Roll or pick from the scorecard";
-        private static string NEW_GAME_FIRST_ROLL_MESSAGE = "Click Roll button to begin";
-        private static string ROLL_TO_CONTINUE = "Click Roll button to continue";
-
-        private bool canScoreFlag = false;
+        private FormDiceTable diceForm;
+        private YahtzeeGame game = new YahtzeeGame();
         private List<Label> labelListScorableEstimates = new List<Label>();
-        private YahtzeeGame game;
         private List<TextBox> textBoxListScorableFields = new List<TextBox>();
-        public FormScorecard(ref YahtzeeGame game)
+        public FormScorecard()
         {
             InitializeComponent();
             compileLists();
-            this.game = game;
+            diceForm = new FormDiceTable(this);
+            diceForm.Show();
         }
         private void compileLists()
         {
@@ -63,13 +58,10 @@ namespace BrowerYahtzee
         {
             clearScorecard();
             game.startNewGame();
-            canScoreFlag = false;
-            labelStatusOfGame.Text = NEW_GAME_FIRST_ROLL_MESSAGE;
         }
         public void updateScorecard()
         {
             updateScoreEstimates();
-            updateGameStatusLabel();
             int upperScore = 0;
             int lowerScore = 0;
             int totalScore = 0;
@@ -117,28 +109,7 @@ namespace BrowerYahtzee
                 labelListScorableEstimates[i].Text = scoreEstimates[i].ToString();
             }
         }
-        public void updateGameStatusLabel()
-        {
-            if (game.getIfGameOver())
-            {
-                labelStatusOfGame.Text = NEW_GAME_MESSAGE;
-            }
-            else if (canScoreFlag)
-            {
-                if (game.getCountOfRolls() == 3)
-                {
-                    labelStatusOfGame.Text = SELECT_SCORE_MESSAGE;
-                }
-                else
-                {
-                    labelStatusOfGame.Text = DUAL_OPTION_MESSAGE;
-                }
-            }
-            else
-            {
-                labelStatusOfGame.Text = ROLL_TO_CONTINUE;
-            }
-        }
+
         public void clearScorecard()
         {
             foreach (Label l in labelListScorableEstimates)
@@ -160,18 +131,14 @@ namespace BrowerYahtzee
         }
         public bool getIfNewRound()
         {
-            return !canScoreFlag;
-        }
-        public void setCanScoreFlag(bool flag)
-        {
-            canScoreFlag = flag;
+            return !game.getIfCanScore();
         }
         private void processScoreFieldClick(object sender, EventArgs e)
         {
             TextBox selection = sender as TextBox;
-            if (canScoreFlag && selection.Text == "")
-            { 
-                canScoreFlag = false;
+            if (game.getIfCanScore() && selection.Text == "")
+            {
+                game.setCanScoreFlag(false);
                 if (Scorer.getIfYahtzee(game.getDieValueArray()) && textBoxYahtzee.Text == "50")
                 {
                     addTallyToBonusYahtzees();
@@ -188,6 +155,7 @@ namespace BrowerYahtzee
         {
             textBoxScoreChosen.Text = labelListScorableEstimates[optionIndex].Text;
             labelListScorableEstimates[optionIndex].Visible = false;
+            diceForm.updateGameStatusLabel();
         }
         private void addTallyToBonusYahtzees()
         {
@@ -203,6 +171,10 @@ namespace BrowerYahtzee
             {
                 checkBoxBonusYahtzeeThree.Checked = true;
             }
+        }
+        public YahtzeeGame getYahtzeeGameContext()
+        {
+            return game;
         }
     }
 }
