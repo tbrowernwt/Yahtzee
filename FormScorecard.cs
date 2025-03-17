@@ -13,16 +13,19 @@ namespace BrowerYahtzee
 {
     public partial class FormScorecard : Form
     {
-        private FormDiceTable diceForm;
+        private FormGameControl gameControl;
+        private byte player;
         private YahtzeeGame game = new YahtzeeGame();
         private List<Label> labelListScorableEstimates = new List<Label>();
         private List<TextBox> textBoxListScorableFields = new List<TextBox>();
-        public FormScorecard()
+        public FormScorecard(FormGameControl gameControl, byte playerNum)
         {
+            this.player = playerNum;
             InitializeComponent();
             compileLists();
-            diceForm = new FormDiceTable(this);
-            diceForm.Show();
+            this.gameControl = gameControl;
+            this.Text = "Player " + (playerNum + 1).ToString() + " scorecard";
+            game.startNewGame();
         }
         private void compileLists()
         {
@@ -53,11 +56,6 @@ namespace BrowerYahtzee
             textBoxListScorableFields.Add(textBoxLgStraight);
             textBoxListScorableFields.Add(textBoxYahtzee);
             textBoxListScorableFields.Add(textBoxChance);
-        }
-        private void buttonNewGame_Click(object sender, EventArgs e)
-        {
-            clearScorecard();
-            game.startNewGame();
         }
         public void updateScorecard()
         {
@@ -100,8 +98,9 @@ namespace BrowerYahtzee
             textBoxUpperTotal.Text = upperScore.ToString();
             textBoxLowerTotal.Text = lowerScore.ToString();
             textBoxGrandTotal.Text = totalScore.ToString();
+            gameControl.updatePlayerScore(textBoxGrandTotal.Text, player);
         }
-        public void updateScoreEstimates()
+        private void updateScoreEstimates()
         {
             int[] scoreEstimates = Scorer.getScoreSheetEstimateArray(game.getDieValueArray());
             for (int i = 0; i < labelListScorableEstimates.Count; i++)
@@ -155,7 +154,7 @@ namespace BrowerYahtzee
         {
             textBoxScoreChosen.Text = labelListScorableEstimates[optionIndex].Text;
             labelListScorableEstimates[optionIndex].Visible = false;
-            diceForm.updateGameStatusLabel();
+            gameControl.nextPlayer();
         }
         private void addTallyToBonusYahtzees()
         {

@@ -80,6 +80,7 @@ namespace BrowerYahtzee
                         }
                     }
                     countOfRolls++;
+                    canScoreFlag = true;
                 }
             }
         }

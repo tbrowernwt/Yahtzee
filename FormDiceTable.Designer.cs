@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDiceTable));
             this.buttonRoll = new System.Windows.Forms.Button();
             this.labelRollCountLabel = new System.Windows.Forms.Label();
             this.labelRollCountNumber = new System.Windows.Forms.Label();
-            this.imageListDieFaces = new System.Windows.Forms.ImageList(this.components);
             this.pictureBoxDie1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDie2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxDie3 = new System.Windows.Forms.PictureBox();
@@ -49,7 +47,7 @@
             // 
             // buttonRoll
             // 
-            this.buttonRoll.Location = new System.Drawing.Point(328, 189);
+            this.buttonRoll.Location = new System.Drawing.Point(328, 195);
             this.buttonRoll.Name = "buttonRoll";
             this.buttonRoll.Size = new System.Drawing.Size(101, 44);
             this.buttonRoll.TabIndex = 10;
@@ -60,7 +58,7 @@
             // labelRollCountLabel
             // 
             this.labelRollCountLabel.AutoSize = true;
-            this.labelRollCountLabel.Location = new System.Drawing.Point(12, 205);
+            this.labelRollCountLabel.Location = new System.Drawing.Point(12, 211);
             this.labelRollCountLabel.Name = "labelRollCountLabel";
             this.labelRollCountLabel.Size = new System.Drawing.Size(69, 13);
             this.labelRollCountLabel.TabIndex = 11;
@@ -69,22 +67,11 @@
             // labelRollCountNumber
             // 
             this.labelRollCountNumber.AutoSize = true;
-            this.labelRollCountNumber.Location = new System.Drawing.Point(87, 205);
+            this.labelRollCountNumber.Location = new System.Drawing.Point(87, 211);
             this.labelRollCountNumber.Name = "labelRollCountNumber";
             this.labelRollCountNumber.Size = new System.Drawing.Size(13, 13);
             this.labelRollCountNumber.TabIndex = 12;
             this.labelRollCountNumber.Text = "0";
-            // 
-            // imageListDieFaces
-            // 
-            this.imageListDieFaces.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageListDieFaces.ImageStream")));
-            this.imageListDieFaces.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageListDieFaces.Images.SetKeyName(0, "Die1.bmp");
-            this.imageListDieFaces.Images.SetKeyName(1, "Die2.bmp");
-            this.imageListDieFaces.Images.SetKeyName(2, "Die3.bmp");
-            this.imageListDieFaces.Images.SetKeyName(3, "Die4.bmp");
-            this.imageListDieFaces.Images.SetKeyName(4, "Die5.bmp");
-            this.imageListDieFaces.Images.SetKeyName(5, "Die6.bmp");
             // 
             // pictureBoxDie1
             // 
@@ -144,11 +131,11 @@
             // labelStatusOfGame
             // 
             this.labelStatusOfGame.AutoSize = true;
-            this.labelStatusOfGame.Location = new System.Drawing.Point(12, 220);
+            this.labelStatusOfGame.Location = new System.Drawing.Point(12, 179);
             this.labelStatusOfGame.Name = "labelStatusOfGame";
-            this.labelStatusOfGame.Size = new System.Drawing.Size(125, 13);
+            this.labelStatusOfGame.Size = new System.Drawing.Size(10, 13);
             this.labelStatusOfGame.TabIndex = 17;
-            this.labelStatusOfGame.Text = "Click Roll button to begin";
+            this.labelStatusOfGame.Text = " ";
             // 
             // FormDiceTable
             // 
@@ -182,7 +169,6 @@
         private System.Windows.Forms.Button buttonRoll;
         private System.Windows.Forms.Label labelRollCountLabel;
         private System.Windows.Forms.Label labelRollCountNumber;
-        private System.Windows.Forms.ImageList imageListDieFaces;
         private System.Windows.Forms.PictureBox pictureBoxDie1;
         private System.Windows.Forms.PictureBox pictureBoxDie2;
         private System.Windows.Forms.PictureBox pictureBoxDie3;

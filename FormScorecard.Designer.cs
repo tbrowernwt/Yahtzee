@@ -82,7 +82,6 @@
             this.textBoxThreeKind = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.textBoxGrandTotal = new System.Windows.Forms.TextBox();
-            this.buttonNewGame = new System.Windows.Forms.Button();
             this.groupBoxUpperSection.SuspendLayout();
             this.groupBoxLowerSection.SuspendLayout();
             this.SuspendLayout();
@@ -632,22 +631,11 @@
             this.textBoxGrandTotal.TabIndex = 48;
             this.textBoxGrandTotal.Text = "0";
             // 
-            // buttonNewGame
-            // 
-            this.buttonNewGame.Location = new System.Drawing.Point(157, 555);
-            this.buttonNewGame.Name = "buttonNewGame";
-            this.buttonNewGame.Size = new System.Drawing.Size(75, 23);
-            this.buttonNewGame.TabIndex = 49;
-            this.buttonNewGame.Text = "New Game";
-            this.buttonNewGame.UseVisualStyleBackColor = true;
-            this.buttonNewGame.Click += new System.EventHandler(this.buttonNewGame_Click);
-            // 
             // FormScorecard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 614);
-            this.Controls.Add(this.buttonNewGame);
+            this.ClientSize = new System.Drawing.Size(244, 544);
             this.Controls.Add(this.textBoxGrandTotal);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.groupBoxLowerSection);
@@ -719,6 +707,5 @@
         private System.Windows.Forms.Label labelThreeKindEstimate;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox textBoxGrandTotal;
-        private System.Windows.Forms.Button buttonNewGame;
     }
 }
