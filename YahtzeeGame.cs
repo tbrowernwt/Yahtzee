@@ -12,7 +12,7 @@ namespace BrowerYahtzee
         private bool canScoreFlag = false;
         private byte countOfRolls;
         private List<Die> diceOnTable = new List<Die>();
-        private bool gameOver = true;
+        private bool gameOver = false;
         private int round = 0;
         private Random rng = new Random();
         public YahtzeeGame()

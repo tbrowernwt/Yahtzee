@@ -123,6 +123,7 @@
             this.textBoxUpperTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxUpperTotal.Location = new System.Drawing.Point(76, 201);
             this.textBoxUpperTotal.Name = "textBoxUpperTotal";
+            this.textBoxUpperTotal.ReadOnly = true;
             this.textBoxUpperTotal.Size = new System.Drawing.Size(76, 20);
             this.textBoxUpperTotal.TabIndex = 21;
             this.textBoxUpperTotal.Text = "0";
@@ -142,6 +143,7 @@
             this.textBoxBonusBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxBonusBox.Location = new System.Drawing.Point(76, 175);
             this.textBoxBonusBox.Name = "textBoxBonusBox";
+            this.textBoxBonusBox.ReadOnly = true;
             this.textBoxBonusBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxBonusBox.TabIndex = 19;
             // 
@@ -214,6 +216,7 @@
             this.textBoxTwosBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxTwosBox.Location = new System.Drawing.Point(76, 45);
             this.textBoxTwosBox.Name = "textBoxTwosBox";
+            this.textBoxTwosBox.ReadOnly = true;
             this.textBoxTwosBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxTwosBox.TabIndex = 11;
             this.textBoxTwosBox.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -269,6 +272,7 @@
             this.textBoxSixesBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSixesBox.Location = new System.Drawing.Point(76, 149);
             this.textBoxSixesBox.Name = "textBoxSixesBox";
+            this.textBoxSixesBox.ReadOnly = true;
             this.textBoxSixesBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxSixesBox.TabIndex = 8;
             this.textBoxSixesBox.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -288,6 +292,7 @@
             this.textBoxFoursBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFoursBox.Location = new System.Drawing.Point(76, 97);
             this.textBoxFoursBox.Name = "textBoxFoursBox";
+            this.textBoxFoursBox.ReadOnly = true;
             this.textBoxFoursBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxFoursBox.TabIndex = 10;
             this.textBoxFoursBox.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -298,6 +303,7 @@
             this.textBoxFivesBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFivesBox.Location = new System.Drawing.Point(76, 123);
             this.textBoxFivesBox.Name = "textBoxFivesBox";
+            this.textBoxFivesBox.ReadOnly = true;
             this.textBoxFivesBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxFivesBox.TabIndex = 9;
             this.textBoxFivesBox.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -308,6 +314,7 @@
             this.textBoxThreesBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxThreesBox.Location = new System.Drawing.Point(76, 71);
             this.textBoxThreesBox.Name = "textBoxThreesBox";
+            this.textBoxThreesBox.ReadOnly = true;
             this.textBoxThreesBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxThreesBox.TabIndex = 7;
             this.textBoxThreesBox.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -318,6 +325,7 @@
             this.textBoxAcesBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxAcesBox.Location = new System.Drawing.Point(77, 19);
             this.textBoxAcesBox.Name = "textBoxAcesBox";
+            this.textBoxAcesBox.ReadOnly = true;
             this.textBoxAcesBox.Size = new System.Drawing.Size(76, 20);
             this.textBoxAcesBox.TabIndex = 6;
             this.textBoxAcesBox.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -373,6 +381,7 @@
             this.textBoxLowerTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLowerTotal.Location = new System.Drawing.Point(76, 221);
             this.textBoxLowerTotal.Name = "textBoxLowerTotal";
+            this.textBoxLowerTotal.ReadOnly = true;
             this.textBoxLowerTotal.Size = new System.Drawing.Size(76, 20);
             this.textBoxLowerTotal.TabIndex = 47;
             this.textBoxLowerTotal.Text = "0";
@@ -548,6 +557,7 @@
             this.textBoxSmStraight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxSmStraight.Location = new System.Drawing.Point(76, 97);
             this.textBoxSmStraight.Name = "textBoxSmStraight";
+            this.textBoxSmStraight.ReadOnly = true;
             this.textBoxSmStraight.Size = new System.Drawing.Size(76, 20);
             this.textBoxSmStraight.TabIndex = 28;
             this.textBoxSmStraight.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -558,6 +568,7 @@
             this.textBoxLgStraight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxLgStraight.Location = new System.Drawing.Point(76, 123);
             this.textBoxLgStraight.Name = "textBoxLgStraight";
+            this.textBoxLgStraight.ReadOnly = true;
             this.textBoxLgStraight.Size = new System.Drawing.Size(76, 20);
             this.textBoxLgStraight.TabIndex = 27;
             this.textBoxLgStraight.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -568,6 +579,7 @@
             this.textBoxYahtzee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxYahtzee.Location = new System.Drawing.Point(76, 149);
             this.textBoxYahtzee.Name = "textBoxYahtzee";
+            this.textBoxYahtzee.ReadOnly = true;
             this.textBoxYahtzee.Size = new System.Drawing.Size(76, 20);
             this.textBoxYahtzee.TabIndex = 26;
             this.textBoxYahtzee.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -578,6 +590,7 @@
             this.textBoxFourKind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFourKind.Location = new System.Drawing.Point(76, 45);
             this.textBoxFourKind.Name = "textBoxFourKind";
+            this.textBoxFourKind.ReadOnly = true;
             this.textBoxFourKind.Size = new System.Drawing.Size(76, 20);
             this.textBoxFourKind.TabIndex = 25;
             this.textBoxFourKind.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -588,6 +601,7 @@
             this.textBoxFullHouse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxFullHouse.Location = new System.Drawing.Point(76, 71);
             this.textBoxFullHouse.Name = "textBoxFullHouse";
+            this.textBoxFullHouse.ReadOnly = true;
             this.textBoxFullHouse.Size = new System.Drawing.Size(76, 20);
             this.textBoxFullHouse.TabIndex = 24;
             this.textBoxFullHouse.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -598,6 +612,7 @@
             this.textBoxChance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxChance.Location = new System.Drawing.Point(76, 175);
             this.textBoxChance.Name = "textBoxChance";
+            this.textBoxChance.ReadOnly = true;
             this.textBoxChance.Size = new System.Drawing.Size(76, 20);
             this.textBoxChance.TabIndex = 23;
             this.textBoxChance.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -608,6 +623,7 @@
             this.textBoxThreeKind.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxThreeKind.Location = new System.Drawing.Point(76, 19);
             this.textBoxThreeKind.Name = "textBoxThreeKind";
+            this.textBoxThreeKind.ReadOnly = true;
             this.textBoxThreeKind.Size = new System.Drawing.Size(76, 20);
             this.textBoxThreeKind.TabIndex = 22;
             this.textBoxThreeKind.Click += new System.EventHandler(this.processScoreFieldClick);
@@ -627,6 +643,7 @@
             this.textBoxGrandTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBoxGrandTotal.Location = new System.Drawing.Point(88, 511);
             this.textBoxGrandTotal.Name = "textBoxGrandTotal";
+            this.textBoxGrandTotal.ReadOnly = true;
             this.textBoxGrandTotal.Size = new System.Drawing.Size(76, 20);
             this.textBoxGrandTotal.TabIndex = 48;
             this.textBoxGrandTotal.Text = "0";

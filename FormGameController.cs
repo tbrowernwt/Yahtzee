@@ -7,6 +7,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace BrowerYahtzee
@@ -18,12 +19,12 @@ namespace BrowerYahtzee
         private List<TextBox> playerScoreTextBoxes = new List<TextBox>();
         private byte numberPlayers = 1;
         private byte playerTurn = 0;
+        private bool isGameOver = true;
         private FormDiceTable diceTable;
         private static string NEW_GAME_MESSAGE = "Game over. Click New Game on the control panel to begin a new game";
         private static string SELECT_SCORE_MESSAGE = "Select an option from the scorecard";
         private static string DUAL_OPTION_MESSAGE = "Select the dice to hold and click Roll or pick from the scorecard";
         private static string ROLL_TO_CONTINUE = "Click Roll button";
-
         public FormGameControl()
         {
             InitializeComponent();
@@ -46,31 +47,35 @@ namespace BrowerYahtzee
 
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
-            foreach(TextBox t in playerScoreTextBoxes)
+            if (isGameOver)
             {
-                t.Visible = false;
-                t.Text = "0";
+                isGameOver = false;
+                foreach (TextBox t in playerScoreTextBoxes)
+                {
+                    t.Visible = false;
+                    t.Text = "0";
+                }
+                foreach (Label l in playerScoreLabels)
+                {
+                    l.Visible = false;
+                }
+                foreach (FormScorecard s in playerScorecards)
+                {
+                    s.Close();
+                }
+                numberPlayers = (byte)numericNumPlayers.Value;
+                playerTurn = 0;
+                playerScorecards.Clear();
+                for (byte b = 0; b < numberPlayers; b++)
+                {
+                    FormScorecard s = new FormScorecard(this, b);
+                    s.Show();
+                    playerScoreLabels[b].Visible = true;
+                    playerScoreTextBoxes[b].Visible = true;
+                    playerScorecards.Add(s);
+                }
+                diceTable.setRollDieEnabled(true);
             }
-            foreach (Label l in playerScoreLabels)
-            {
-                l.Visible = false;
-            }
-            foreach(FormScorecard s in playerScorecards)
-            {
-                s.Close();
-            }
-            numberPlayers = (byte)numericNumPlayers.Value;
-            playerTurn = 0;
-            playerScorecards.Clear();
-            for (byte b = 0; b < numberPlayers; b++)
-            {
-                FormScorecard s = new FormScorecard(this, b);
-                s.Show();
-                playerScoreLabels[b].Visible = true;
-                playerScoreTextBoxes[b].Visible = true;
-                playerScorecards.Add(s);
-            }
-            diceTable.setRollDieEnabled(true);
             updateGameStatusLabel();
         }
         public void rollPlayerDice()
@@ -80,10 +85,21 @@ namespace BrowerYahtzee
             updateDieTable();
             playerScorecards[playerTurn].updateScorecard();
         }
+        private void checkAndUpdateGameOver()
+        {
+            if (playerScorecards[numberPlayers - 1].getYahtzeeGameContext().getIfGameOver())
+            {
+                isGameOver = true;
+            }
+        }
         public void nextPlayer()
         {
             playerScorecards[playerTurn].getYahtzeeGameContext().setCanScoreFlag(false);
             playerTurn = (byte)((playerTurn + 1) % numberPlayers);
+            if (playerScorecards[playerTurn].getYahtzeeGameContext().getIfGameOver())
+            {
+                isGameOver = true;
+            }
             updateGameStatusLabel();
         }
         public void flipDieHoldFlag(int die)
@@ -101,12 +117,12 @@ namespace BrowerYahtzee
         {
             playerScoreTextBoxes[player].Text = score;
         }
-        private void updateGameStatusLabel()
+        public void updateGameStatusLabel()
         {
             string message = "";
-            if (playerScorecards[playerTurn].getYahtzeeGameContext().getIfGameOver())
+            if (isGameOver)
             {
-                diceTable.getGameStatusLabel().Text = NEW_GAME_MESSAGE;
+                message = NEW_GAME_MESSAGE;
             }
             else if (playerScorecards[playerTurn].getYahtzeeGameContext().getIfCanScore())
             {

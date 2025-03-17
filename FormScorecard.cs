@@ -146,6 +146,7 @@ namespace BrowerYahtzee
                 if (game.getRound() == 13)
                 {
                     game.setGameOver(true);
+                    gameControl.updateGameStatusLabel();
                 }
             }
             updateScorecard();
